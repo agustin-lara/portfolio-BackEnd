@@ -1,10 +1,13 @@
 package com.agustinlaradesarrollador.portfolioBackEnd.Model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,6 +38,9 @@ public class Persona {
     
     @Column(name = "imagen_portada")
     private String imagen_portada;
+    
+    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Empleo> empleos;
     
     public Persona(String nombre, String titulo, String descripcion, String imagen_perfil, String imagen_portada) {
         this.nombre = nombre;

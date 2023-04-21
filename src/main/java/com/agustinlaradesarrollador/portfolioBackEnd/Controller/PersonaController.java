@@ -37,7 +37,7 @@ public class PersonaController {
     
     @GetMapping ("/{id}")
     public ResponseEntity<Persona> findPersona(@PathVariable int id) {
-        Persona persona = iPersonaService.findPersona(id);
+        Persona persona = iPersonaService.getPersona(id);
         if (persona == null) {
             return new ResponseEntity("El ID no existe.",HttpStatus.NOT_FOUND);
         } else {
@@ -53,7 +53,7 @@ public class PersonaController {
     
     @PutMapping ("/editar/{id}")
     public ResponseEntity<Persona> updatePersona(@PathVariable int id, @RequestBody Persona nuevaPersona) {
-        Persona persona = iPersonaService.findPersona(id);
+        Persona persona = iPersonaService.getPersona(id);
         if(persona == null) {
             return new ResponseEntity("El ID no existe.",HttpStatus.NOT_FOUND);
         } else {
@@ -69,7 +69,7 @@ public class PersonaController {
     
     @DeleteMapping ("/borrar/{id}")
     public ResponseEntity<?> deletePersona(@PathVariable int id) {
-        if(iPersonaService.findPersona(id) == null) {
+        if(iPersonaService.getPersona(id) == null) {
             return new ResponseEntity("El ID no existe.", HttpStatus.NOT_FOUND);
         } else {
             iPersonaService.deletePersona(id);

@@ -12,7 +12,7 @@ public interface IPersonaService {
     
     public List<Persona> getPersonas();
     
-    public Persona findPersona(int id);
+    public Persona getPersona(int id);
     
     public void savePersona(Persona pers);
     
