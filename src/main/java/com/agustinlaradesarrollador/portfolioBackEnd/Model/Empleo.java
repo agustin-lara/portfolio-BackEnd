@@ -1,6 +1,5 @@
 package com.agustinlaradesarrollador.portfolioBackEnd.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -28,9 +27,6 @@ public class Empleo {
     @Column(name = "nombre")
     private String nombre;
     
-//    @Column(name = "descripcion")
-//    private String descripcion;
-    
     @Column(name = "fecha_inicio")
     private String fecha_inicio;
     
@@ -38,7 +34,7 @@ public class Empleo {
     private String fecha_fin;
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "persona_id")
+    @JoinColumn(name = "persona_id", nullable = false)
     private Persona persona;
     
     public Empleo(String nombre, String fecha_inicio, String fecha_fin, Persona persona) {
@@ -49,11 +45,6 @@ public class Empleo {
     }
     
     public Empleo() {
-    }
-    
-    @JsonIgnore
-    public Persona getPersona() {
-        return persona;
     }
     
 }

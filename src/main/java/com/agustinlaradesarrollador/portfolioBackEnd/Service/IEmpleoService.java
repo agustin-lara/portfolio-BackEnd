@@ -1,7 +1,10 @@
 package com.agustinlaradesarrollador.portfolioBackEnd.Service;
 
 import com.agustinlaradesarrollador.portfolioBackEnd.Model.Empleo;
+import com.agustinlaradesarrollador.portfolioBackEnd.dto.EmpleoRequest;
+import com.agustinlaradesarrollador.portfolioBackEnd.dto.EmpleoResponse;
 import java.util.List;
+import org.springframework.http.ResponseEntity;
 
 /**
  *
@@ -10,14 +13,12 @@ import java.util.List;
 
 public interface IEmpleoService {
     
-    public List<Empleo> getAllEmpleos();
+    public List<EmpleoResponse> getAllEmpleosByPersonaId(int personaId);
     
-    public Empleo getEmpleo(int id);
+    public ResponseEntity<String> addEmpleo(EmpleoRequest empleoRequest);
     
-    public void addEmpleo(Empleo empleo);
+    public ResponseEntity<String> updateEmpleo(EmpleoRequest empleoRequest, int id);
     
-    public void deleteEmpleo(int id);
-    
-    public List<Empleo> getAllEmpleosByPersona(int personaId);
+    public ResponseEntity<String> deleteEmpleo(int id);
     
 }
