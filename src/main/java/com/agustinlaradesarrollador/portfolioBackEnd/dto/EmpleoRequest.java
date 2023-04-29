@@ -25,6 +25,6 @@ public class EmpleoRequest {
     private String fecha_fin;
     
     @NotNull
-    private int personaId;
+    private int perfilId;
     
 }

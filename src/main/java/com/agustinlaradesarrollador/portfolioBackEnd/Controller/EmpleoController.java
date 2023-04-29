@@ -28,9 +28,9 @@ public class EmpleoController {
     @Autowired
     private IEmpleoService iEmpleoService;
     
-    @GetMapping("/{personaId}")
-    public List<EmpleoResponse> getAllEmpleosByPersonaId(@PathVariable int personaId) {
-        return iEmpleoService.getAllEmpleosByPersonaId(personaId);
+    @GetMapping("/{perfilId}")
+    public List<EmpleoResponse> getAllEmpleosByPerfilId(@PathVariable int perfilId) {
+        return iEmpleoService.getAllEmpleosByPerfilId(perfilId);
     }
     
     @PostMapping

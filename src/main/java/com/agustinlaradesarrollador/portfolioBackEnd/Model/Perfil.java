@@ -3,8 +3,8 @@ package com.agustinlaradesarrollador.portfolioBackEnd.Model;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+//import jakarta.persistence.GeneratedValue;
+//import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import java.util.List;
@@ -18,10 +18,10 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class Persona {
+public class Perfil {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+//    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     
     @Column(name = "nombre")
@@ -39,18 +39,20 @@ public class Persona {
     @Column(name = "imagen_portada")
     private String imagen_portada;
     
-    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "perfil", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Empleo> empleos;
     
-    public Persona(String nombre, String titulo, String descripcion, String imagen_perfil, String imagen_portada) {
+    public Perfil(int id, String nombre, String titulo, String descripcion, String imagen_perfil, String imagen_portada) {
+        this.id = id;
         this.nombre = nombre;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.imagen_perfil = imagen_perfil;
         this.imagen_portada = imagen_portada;
+//        Ver si es necesario inicializar la lista de empleos
     }
     
-    public Persona() {
+    public Perfil() {
     }
     
 }

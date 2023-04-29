@@ -34,14 +34,14 @@ public class Empleo {
     private String fecha_fin;
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "persona_id", nullable = false)
-    private Persona persona;
+    @JoinColumn(name = "perfil_id", nullable = false)
+    private Perfil perfil;
     
-    public Empleo(String nombre, String fecha_inicio, String fecha_fin, Persona persona) {
+    public Empleo(String nombre, String fecha_inicio, String fecha_fin, Perfil perfil) {
         this.nombre = nombre;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
-        this.persona = persona;
+        this.perfil = perfil;
     }
     
     public Empleo() {

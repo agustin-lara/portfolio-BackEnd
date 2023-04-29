@@ -1,6 +1,5 @@
 package com.agustinlaradesarrollador.portfolioBackEnd.Service;
 
-import com.agustinlaradesarrollador.portfolioBackEnd.Model.Empleo;
 import com.agustinlaradesarrollador.portfolioBackEnd.dto.EmpleoRequest;
 import com.agustinlaradesarrollador.portfolioBackEnd.dto.EmpleoResponse;
 import java.util.List;
@@ -13,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 
 public interface IEmpleoService {
     
-    public List<EmpleoResponse> getAllEmpleosByPersonaId(int personaId);
+    public List<EmpleoResponse> getAllEmpleosByPerfilId(int perfilId);
     
     public ResponseEntity<String> addEmpleo(EmpleoRequest empleoRequest);
     

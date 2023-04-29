@@ -1,9 +1,9 @@
 package com.agustinlaradesarrollador.portfolioBackEnd.Service;
 
 import com.agustinlaradesarrollador.portfolioBackEnd.Model.Empleo;
-import com.agustinlaradesarrollador.portfolioBackEnd.Model.Persona;
+import com.agustinlaradesarrollador.portfolioBackEnd.Model.Perfil;
 import com.agustinlaradesarrollador.portfolioBackEnd.Repository.EmpleoRepository;
-import com.agustinlaradesarrollador.portfolioBackEnd.Repository.PersonaRepository;
+import com.agustinlaradesarrollador.portfolioBackEnd.Repository.PerfilRepository;
 import com.agustinlaradesarrollador.portfolioBackEnd.dto.EmpleoRequest;
 import com.agustinlaradesarrollador.portfolioBackEnd.dto.EmpleoResponse;
 import java.util.ArrayList;
@@ -25,11 +25,11 @@ public class EmpleoService implements IEmpleoService {
     private EmpleoRepository empleoRepository;
     
     @Autowired
-    private PersonaRepository personaRepository;
+    private PerfilRepository perfilRepository;
 
     @Override
-    public List<EmpleoResponse> getAllEmpleosByPersonaId(int personaId) {
-        List<Empleo> empleos = empleoRepository.findByPersonaId(personaId);
+    public List<EmpleoResponse> getAllEmpleosByPerfilId(int perfilId) {
+        List<Empleo> empleos = empleoRepository.findByPerfilId(perfilId);
         List<EmpleoResponse> empleoResponses = new ArrayList<>();
         for(Empleo empleo : empleos) {
             empleoResponses.add(new EmpleoResponse(
@@ -44,29 +44,29 @@ public class EmpleoService implements IEmpleoService {
     
     @Override
     public ResponseEntity<String> addEmpleo(EmpleoRequest empleoRequest) {
-        Persona persona = personaRepository.findById(empleoRequest.getPersonaId()).orElse(null);
-        if (persona != null) {
+        Perfil perfil = perfilRepository.findById(empleoRequest.getPerfilId()).orElse(null);
+        if (perfil != null) {
             Empleo empleo = new Empleo(
                     empleoRequest.getNombre(),
                     empleoRequest.getFecha_inicio(),
                     empleoRequest.getFecha_fin(),
-                    persona
+                    perfil
             );
             empleoRepository.save(empleo);
             return new ResponseEntity("Empleo creado.",HttpStatus.OK);
         }
-        return new ResponseEntity("El ID de la Persona no existe.",HttpStatus.NOT_FOUND);
+        return new ResponseEntity("El ID del Perfil no existe.",HttpStatus.NOT_FOUND);
     }
     
     @Override
     public ResponseEntity<String> updateEmpleo(EmpleoRequest empleoRequest, int id) {
-        Persona persona = personaRepository.findById(empleoRequest.getPersonaId()).orElse(null);
+        Perfil perfil = perfilRepository.findById(empleoRequest.getPerfilId()).orElse(null);
         Empleo empleo = empleoRepository.findById(id).orElse(null);
-        if (persona == null && empleo == null) {
-            return new ResponseEntity("El ID de la Persona y del Empleo no existen.",HttpStatus.NOT_FOUND);
+        if (perfil == null && empleo == null) {
+            return new ResponseEntity("El ID del Perfil y del Empleo no existen.",HttpStatus.NOT_FOUND);
         }
-        if (persona == null) {
-            return new ResponseEntity("El ID de la Persona no existe.",HttpStatus.NOT_FOUND);
+        if (perfil == null) {
+            return new ResponseEntity("El ID del Perfil no existe.",HttpStatus.NOT_FOUND);
         }
         if (empleo == null) {
              return new ResponseEntity("El ID del Empleo no existe.",HttpStatus.NOT_FOUND);
@@ -75,7 +75,7 @@ public class EmpleoService implements IEmpleoService {
         empleo.setNombre(empleoRequest.getNombre());
         empleo.setFecha_inicio(empleoRequest.getFecha_inicio());
         empleo.setFecha_fin(empleoRequest.getFecha_fin());
-        empleo.setPersona(persona);
+        empleo.setPerfil(perfil);
         empleoRepository.save(empleo);
         return new ResponseEntity("Empleo modificado.",HttpStatus.OK);
     }
