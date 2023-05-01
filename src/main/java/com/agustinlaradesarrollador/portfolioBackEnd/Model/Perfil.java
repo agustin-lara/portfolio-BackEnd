@@ -42,6 +42,9 @@ public class Perfil {
     @OneToMany(mappedBy = "perfil", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<HabilidadBlanda> habilidadesBlandas;
     
+    @OneToMany(mappedBy = "perfil", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<HabilidadDura> habilidadesDuras;
+    
     public Perfil(int id, String nombre, String titulo, String descripcion, String imagen_perfil, String imagen_portada) {
         this.id = id;
         this.nombre = nombre;
