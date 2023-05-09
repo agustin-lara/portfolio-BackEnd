@@ -35,8 +35,9 @@ public class EmpleoService implements IEmpleoService {
             empleoResponses.add(new EmpleoResponse(
                     empleo.getId(),
                     empleo.getNombre(),
-                    empleo.getFecha_inicio(),
-                    empleo.getFecha_fin()
+                    empleo.getInstitucion(),
+                    empleo.getFecha(),
+                    empleo.getImagen()
             ));
         }
         return empleoResponses;
@@ -48,8 +49,9 @@ public class EmpleoService implements IEmpleoService {
         if (perfil != null) {
             Empleo empleo = new Empleo(
                     empleoRequest.getNombre(),
-                    empleoRequest.getFecha_inicio(),
-                    empleoRequest.getFecha_fin(),
+                    empleoRequest.getInstitucion(),
+                    empleoRequest.getFecha(),
+                    empleoRequest.getImagen(),
                     perfil
             );
             empleoRepository.save(empleo);
@@ -73,8 +75,9 @@ public class EmpleoService implements IEmpleoService {
         }
         // Aplicar modificaciones
         empleo.setNombre(empleoRequest.getNombre());
-        empleo.setFecha_inicio(empleoRequest.getFecha_inicio());
-        empleo.setFecha_fin(empleoRequest.getFecha_fin());
+        empleo.setInstitucion(empleoRequest.getInstitucion());
+        empleo.setFecha(empleoRequest.getFecha());
+        empleo.setImagen(empleoRequest.getImagen());
         empleo.setPerfil(perfil);
         empleoRepository.save(empleo);
         return new ResponseEntity("Empleo modificado.",HttpStatus.OK);

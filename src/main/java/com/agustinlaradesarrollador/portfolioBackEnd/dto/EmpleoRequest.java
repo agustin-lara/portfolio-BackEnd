@@ -2,7 +2,6 @@ package com.agustinlaradesarrollador.portfolioBackEnd.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 /**
@@ -17,12 +16,13 @@ public class EmpleoRequest {
     private String nombre;
     
     @NotBlank
-    @Size(min = 8, message = "Fecha de inicio debe tener al menos 8 caracteres.")
-    private String fecha_inicio;
+    private String institucion;
     
     @NotBlank
-    @Size(min = 8, message = "Fecha de fin debe tener al menos 8 caracteres.")
-    private String fecha_fin;
+    private String fecha;
+    
+    @NotBlank
+    private String imagen;
     
     @NotNull
     private int perfilId;

@@ -1,7 +1,6 @@
 package com.agustinlaradesarrollador.portfolioBackEnd.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 /**
@@ -13,7 +12,6 @@ import lombok.Data;
 public class PerfilRequest {
     
     @NotBlank
-    @NotNull
     private String nombre;
     
     @NotBlank

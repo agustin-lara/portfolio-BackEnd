@@ -27,20 +27,24 @@ public class Empleo {
     @Column(name = "nombre")
     private String nombre;
     
-    @Column(name = "fecha_inicio")
-    private String fecha_inicio;
+    @Column(name = "institucion")
+    private String institucion;
     
-    @Column(name = "fecha_fin")
-    private String fecha_fin;
+    @Column(name = "fecha")
+    private String fecha;
+    
+    @Column(name = "imagen")
+    private String imagen;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "perfil_id", nullable = false)
     private Perfil perfil;
     
-    public Empleo(String nombre, String fecha_inicio, String fecha_fin, Perfil perfil) {
+    public Empleo(String nombre, String institucion, String fecha, String imagen, Perfil perfil) {
         this.nombre = nombre;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_fin = fecha_fin;
+        this.institucion = institucion;
+        this.fecha = fecha;
+        this.imagen = imagen;
         this.perfil = perfil;
     }
     

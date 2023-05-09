@@ -12,14 +12,16 @@ public class EmpleoResponse {
     
     private int id;
     private String nombre;
-    private String fecha_inicio;
-    private String fecha_fin;
+    private String institucion;
+    private String fecha;
+    private String imagen;
     
-    public EmpleoResponse(int id, String nombre, String fecha_inicio, String fecha_fin) {
+    public EmpleoResponse(int id, String nombre, String institucion, String fecha, String imagen) {
         this.id = id;
         this.nombre = nombre;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_fin = fecha_fin;
+        this.institucion = institucion;
+        this.fecha = fecha;
+        this.imagen = imagen;
     }
     
 }
