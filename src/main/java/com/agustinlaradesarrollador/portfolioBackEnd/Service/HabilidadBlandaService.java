@@ -36,8 +36,7 @@ public class HabilidadBlandaService implements IHabilidadBlandaService {
                     habilidad.getId(),
                     habilidad.getNombre(),
                     habilidad.getDescripcion(),
-                    habilidad.getImagen(),
-                    habilidad.getImagen_alt()
+                    habilidad.getImagen()
             ));
         }
         return habilidadResponses;
@@ -51,7 +50,6 @@ public class HabilidadBlandaService implements IHabilidadBlandaService {
                     habilidadBlandaRequest.getNombre(),
                     habilidadBlandaRequest.getDescripcion(),
                     habilidadBlandaRequest.getImagen(),
-                    habilidadBlandaRequest.getImagen_alt(),
                     perfil
             );
             habilidadRepository.save(habilidad);
@@ -76,7 +74,6 @@ public class HabilidadBlandaService implements IHabilidadBlandaService {
         habilidad.setNombre(habilidadBlandaRequest.getNombre());
         habilidad.setDescripcion(habilidadBlandaRequest.getDescripcion());
         habilidad.setImagen(habilidadBlandaRequest.getImagen());
-        habilidad.setImagen_alt(habilidadBlandaRequest.getImagen_alt());
         habilidad.setPerfil(perfil);
         habilidadRepository.save(habilidad);
         return new ResponseEntity("Habilidad blanda modificada.",HttpStatus.OK);

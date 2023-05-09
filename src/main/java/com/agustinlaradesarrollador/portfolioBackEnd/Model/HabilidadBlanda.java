@@ -33,18 +33,14 @@ public class HabilidadBlanda {
     @Column(name = "imagen")
     private String imagen;
     
-    @Column (name = "imagen_alt")
-    private String imagen_alt;
-    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "perfil_id", nullable = false)
     private Perfil perfil;
     
-    public HabilidadBlanda(String nombre, String descripcion, String imagen, String imagen_alt, Perfil perfil) {
+    public HabilidadBlanda(String nombre, String descripcion, String imagen, Perfil perfil) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;
-        this.imagen_alt = imagen_alt;
         this.perfil = perfil;
     }
     

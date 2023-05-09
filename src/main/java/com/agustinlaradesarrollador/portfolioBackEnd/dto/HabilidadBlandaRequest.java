@@ -21,9 +21,6 @@ public class HabilidadBlandaRequest {
     @NotBlank
     private String imagen;
     
-    @NotBlank
-    private String imagen_alt;
-    
     @NotNull
     private int perfilId;
     

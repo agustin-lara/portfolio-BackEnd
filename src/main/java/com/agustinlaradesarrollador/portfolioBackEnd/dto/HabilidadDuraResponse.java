@@ -13,15 +13,13 @@ public class HabilidadDuraResponse {
     private int id;
     private String nombre;
     private int dominio;
-    private String imagen;
-    private String imagen_alt;
+    private String color;
     
-    public HabilidadDuraResponse(int id, String nombre, int dominio, String imagen, String imagen_alt) {
+    public HabilidadDuraResponse(int id, String nombre, int dominio, String color) {
         this.id = id;
         this.nombre = nombre;
         this.dominio = dominio;
-        this.imagen = imagen;
-        this.imagen_alt = imagen_alt;
+        this.color = color;
     }
     
 }

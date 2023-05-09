@@ -30,22 +30,18 @@ public class HabilidadDura {
     @Column(name = "dominio")
     private int dominio;
     
-    @Column(name = "imagen")
-    private String imagen;
-    
-    @Column (name = "imagen_alt")
-    private String imagen_alt;
+    @Column(name = "color")
+    private String color;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "perfil_id", nullable = false)
     private Perfil perfil;
     
-    public HabilidadDura(String nombre, int dominio, String imagen, String imagen_alt, Perfil perfil) {
+    public HabilidadDura(String nombre, int dominio, String color, Perfil perfil) {
         this.nombre = nombre;
         this.dominio = dominio;
-        this.imagen = imagen;
-        this.imagen_alt = imagen_alt;
         this.perfil = perfil;
+        this.color = color;
     }
     
     public HabilidadDura() {

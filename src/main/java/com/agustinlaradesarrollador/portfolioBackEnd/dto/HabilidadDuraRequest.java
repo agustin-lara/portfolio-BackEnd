@@ -23,10 +23,7 @@ public class HabilidadDuraRequest {
     private int dominio;
     
     @NotBlank
-    private String imagen;
-    
-    @NotBlank
-    private String imagen_alt;
+    private String color;
     
     @NotNull
     private int perfilId;

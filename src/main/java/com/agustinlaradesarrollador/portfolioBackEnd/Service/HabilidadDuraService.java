@@ -36,8 +36,7 @@ public class HabilidadDuraService implements IHabilidadDuraService {
                     habilidad.getId(),
                     habilidad.getNombre(),
                     habilidad.getDominio(),
-                    habilidad.getImagen(),
-                    habilidad.getImagen_alt()
+                    habilidad.getColor()
             ));
         }
         return habilidadResponses;
@@ -50,8 +49,7 @@ public class HabilidadDuraService implements IHabilidadDuraService {
             HabilidadDura habilidad = new HabilidadDura(
                     habilidadDuraRequest.getNombre(),
                     habilidadDuraRequest.getDominio(),
-                    habilidadDuraRequest.getImagen(),
-                    habilidadDuraRequest.getImagen_alt(),
+                    habilidadDuraRequest.getColor(),
                     perfil
             );
             habilidadRepository.save(habilidad);
@@ -75,8 +73,7 @@ public class HabilidadDuraService implements IHabilidadDuraService {
         }
         habilidad.setNombre(habilidadDuraRequest.getNombre());
         habilidad.setDominio(habilidadDuraRequest.getDominio());
-        habilidad.setImagen(habilidadDuraRequest.getImagen());
-        habilidad.setImagen_alt(habilidadDuraRequest.getImagen_alt());
+        habilidad.setColor(habilidadDuraRequest.getColor());
         habilidad.setPerfil(perfil);
         habilidadRepository.save(habilidad);
         return new ResponseEntity("Habilidad dura modificada.",HttpStatus.OK);
