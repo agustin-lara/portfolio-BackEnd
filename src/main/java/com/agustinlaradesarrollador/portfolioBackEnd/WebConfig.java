@@ -10,13 +10,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author Agustín
  */
 
-@EnableWebMvc
 @Configuration
+@EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
     
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**");
+        registry.addMapping("/api/**")
+                .allowedOrigins("https://portfolio-frontend-la.web.app")
+                .allowedMethods("GET","POST","PUT","DELETE");
     }
     
 }
